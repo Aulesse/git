@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" placeholder="请输入内容" id="input">
+  <button id="addBtn">添加</button>
+  <ul id="list"></ul>
+
+  <script>
+    let addBtn = document.getElementById('addBtn');
+    let input = document.getElementById('input');
+    let ul = document.getElementById('list');
+
+    addBtn.addEventListener('click', function () {
+      let li = document.createElement('li');
+      li.textContent = input.value;
+
+      let delBtn = document.createElement('button');
+      delBtn.textContent = '删除';
+
+      delBtn.addEventListener('click', function () {
+        li.remove();
+      });
+
+      li.appendChild(delBtn);
+      ul.appendChild(li);
+
+      // 清空输入框
+      input.value = '';
+    });
+  </script>
+</body>
+
+</html>
