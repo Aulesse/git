@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+    }
+
+    .active {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box active">1333</div>
+  <script>
+    // 通过classList添加
+    // 1.获取元素
+    const box = document.querySelector('.box')
+    // 2.修改样式
+    // 2.1 追加类 add() 类名不加点 并是字符串
+    // box.classList.add('active')
+
+    // 3.删除类 remove() 
+    // box.classList.remove('box')
+
+    // 4.切换类 toggle()
+    // 4.1 若有这个类就删除 没有就增加 多用于开关控制等
+    box.classList.toggle('active')
+
+    // className 和 classList 的区别在于className 是整体覆盖，classList 是单个增删。做交互用 classList，别用 className 拼字符串。
+  </script>
+</body>
+
+</html>
