@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自定义属性</title>
+</head>
+
+<body>
+  <div data-id="1" data-spm="商品名">1</div>
+  <div data-id="2">2</div>
+  <div data-id="3">3</div>
+  <div data-id="4">4</div>
+  <div data-id="5">5</div>
+  <script>
+    const div = document.querySelector('div')
+
+    console.log(div.dataset.id)
+    console.log(div.dataset.spm)
+
+    // 在html5中推出来了专门的data-自定义属性
+    // 在标签上一律以data-开头
+    // 在D0M对象上一律以dataset对象方式获取
+  </script>
+</body>
+
+</html>
