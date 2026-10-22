@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>点名抽奖</title>
+    <style>
+        .qs {
+            font-size: 40px;
+            margin: 30px 0;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="qs">等待开始</div>
+    <button class="start">开始</button>
+    <button class="end">停止</button>
+
+    <script>
+        // 数据数组
+        const arr = ['马超', '黄忠', '赵云', '关羽', '张飞']
+        // 获取元素
+        const qs = document.querySelector('.qs')
+        const start = document.querySelector('.start')
+        const end = document.querySelector('.end')
+        // 定时器id
+        let timeID = 0
+        // 保存当前随机下标（全局）
+        let random = 0
+
+        // 开始按钮
+        start.addEventListener('click', function () {
+            // 先清除旧定时器，防止多次点击叠加
+            clearInterval(timeID)
+            timeID = setInterval(function () {
+                random = Math.floor(Math.random() * arr.length)
+                qs.innerHTML = arr[random]
+            }, 50)
+        })
+
+        // 停止按钮
+        end.addEventListener('click', function () {
+            clearInterval(timeID)
+            arr.splice(random, 1)
+            console.log(arr)
+            if (arr.length === 1) {
+                start.disabled = end.disabled = true
+            }
+        })
+    </script>
+</body>
+
+</html>
