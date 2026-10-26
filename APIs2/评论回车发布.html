@@ -123,6 +123,9 @@
     const tx = document.querySelector('#tx')
     const total = document.querySelector('.total')
     const item = document.querySelector('.item')
+    const text = document.querySelector('.text')
+
+    // 注意text要先声明
 
     // 1.当我们文本域获得了焦点  就让total 显示出来
     tx.addEventListener('focus', function () {
@@ -148,7 +151,15 @@
       // 这里必须全等 否则按任意键都会触发评论区
       // 这里E 要大写
       if (e.key === 'Enter') {
-        item.style.display = 'block'
+        // 如果用户输入的不为空就显示和打印
+        if (tx.value.trim()) {
+          item.style.display = 'block'
+          text.innerHTML = tx.value
+        }
+        // 等我们按下回车，结束，穷空文本域
+        tx.value = ''
+        // 按下回车之后，就要把 字符同统计 复原
+        total.innerHTML = '0/200字'
       }
     })
   </script>
