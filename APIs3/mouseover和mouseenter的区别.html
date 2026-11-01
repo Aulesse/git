@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .dad {
+      width: 500px;
+      height: 500px;
+      background-color: pink;
+    }
+
+    .baby {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dad">
+    <div class="baby"></div>
+  </div>
+  <script>
+    const dad = document.querySelector('.dad')
+    const baby = document.querySelector('.baby')
+    dad.addEventListener('mouseenter', function () {
+      console.log('鼠标经过')
+    })
+    baby.addEventListener('mouseleave', function () {
+      console.log('鼠标离开')
+    })
+
+    // 以后鼠标经过用enter 不用over
+    // 鼠标离开用leave 不用 out
+    // 因为用over和out时，每次鼠标经过或离开的判定是以自己独立的区域作为判定的，这就导致会有很多冒泡事件发生，会执行多次，而且并非真实
+    // 改用enter 和 leave 后，子盒子和父盒子将会视为一个整体，鼠标经过和离开时不会以单个子盒子产生冒泡事件，结果更加清晰
+  </script>
+</body>
+
+</html>

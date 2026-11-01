@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+  点击每个小li 都可以变红色
+  点击其他元素不变
+  按照事件委托 委托写在父亲身上
+  
+  -->
+  <ul>
+    <li>第1个孩子</li>
+    <li>第2个孩子</li>
+    <li>第3个孩子</li>
+    <li>第4个孩子</li>
+    <li>第5个孩子</li>
+    <p>我来捣乱的</p>
+  </ul>
+  <script>
+    // 获取父元素
+    const ul = document.querySelector('ul')
+    ul.addEventListener('click', function (e) {
+      // alert('点击了')
+      // e.target.style.color = 'red'
+      // 我们的需求是点击li 变色，不是其他元素
+      if (e.target.tagName === 'LI') {
+        e.target.style.color = 'red'
+      }
+    })
+  </script>
+</body>
+
+</html>
