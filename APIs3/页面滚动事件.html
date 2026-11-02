@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      padding-top: 100px;
+      height: 3000px;
+    }
+
+    div {
+      display: none;
+      height: 200px;
+      width: 200px;
+      background-color: rgb(0, 255, 213);
+      border: 1px solid black;
+      overflow: scroll;
+      margin: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    文本（text），从词源上来说，它表示编织的东西。
+    这与中国“文”的概念颇有类似之处。
+    “文”取象人形，指纹身，指花纹。
+    《说文解字叙》称：“仓颉初作书，盖依类象形，故曰文。
+    ”“文者，物象之本。”物象均具纹路色彩，因以“文”来指称。
+    《周易·系辞下》记伏羲氏“观鸟兽之文”，鸟兽身上的花纹彩羽。
+    该书又载“物相杂故曰文”，物体的形状、线条色彩相互交错，这也是文。
+    “观乎天文，以察时变，观乎人文，以化成天下。
+    ”《说文解字》解释“文”为“错画也。”
+    但是文本的概念后来主要变成了：“任何由书写所固定下来的任何话语。
+    ”对语言学家来说，文本指的是作品的可见可感的表层结构
+    ，是一系列语句串联而成的连贯序列。
+    文本可能只是一个单句，例如谚语、格言、招牌等，
+    但比较普遍的是由一系列句子组成。文本和段落的区别在于，
+    文本构成了一个相对封闭、自足的系统。
+    前苏联符号学家洛特曼指出，文本是外观的，
+    即用一定的符号来表示；它是有限的，既有头有尾；
+    它有内部结构。罗兰·巴特则认为文本具有无法缩减的意义多重性，
+    是能指自由播散的场域，不存在固定、确定、单一的所指，
+    文本意义在读者的阅读中不断生成与开放
+    以上从技术上中性地对文本做出基本界定。
+    “文本”一词来自英文text，另有本文、正文、语篇和课文等多种译法这个词广泛应用于语言学和文体学中，而且也在文学理论与批评中扮演活跃的角色。
+    但它含义丰富而不易界定，给实际运用和理解带来一定困难。
+    可以一般地说，文本是语言的实际运用形态。
+    而在具体场合中，
+    文本是根据一定的语言衔接和语义连贯规则而组成的整体语句或语句系统，
+    有待于读者阅读。
+    和文本相关的是文本学和解释学这两个领域。
+    文本世界与经验世界的关系颇有意思，似乎高妙的文字是经验世界的最佳描述，但是这种描述本身又与经验世界产生关系，因为文本来源于作者，所以在文本和经验
+    之间的叙述者显然极为重要。“经验世界——叙述者——文本世界”三者产生的关系是文学批评的来源，这种模式同样亦可用于美术、音乐。
+  </div>
+  <script>
+    //滚动条滚动一像素就会触发
+
+
+    const div = document.querySelector('div')
+    // div.addEventListener('scroll', function () {
+    //   // console.log(111)
+    //   //scrollTop 被卷去的头部
+    //   console.log(div.scrollTop)
+    // })
+    window.addEventListener('scroll', function () {
+      // console.log('我滚动啦')
+      // 我想知道页面到底滚动了多少像素，被卷去了多少 scrollTop
+      // 获取html元素   document.documentElement
+      // console.log(document.documentElement.scrollTop)
+      const n = document.documentElement.scrollTop
+      if (n >= 100) {
+        div.style.display = 'block'
+      } else {
+        div.style.display = 'none'
+      }
+
+    })
+  </script>
+</body>
+
+</html>
