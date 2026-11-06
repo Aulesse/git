@@ -1270,6 +1270,34 @@
           document.documentElement.scrollTop = top
         }
       })
+
+      // 3.页面滚动 可以根据大盒子选 小盒子 添加active类
+      window.addEventListener('scroll', function () {
+        // 3.1先移除类
+        // 先获取这个active对象
+        const old = document.querySelector('.xtx-elevator-list .active')
+        // 判断 有就删除 没有该对象就不删除
+        if (old) old.classList.remove('active')
+        // 判断页面当前滑动的位置 选择小盒子
+
+        // 判断4个大盒子
+        const news = document.querySelector('.xtx_goods_new')
+        const popular = document.querySelector('.xtx_goods_popular')
+        const brand = document.querySelector('.xtx_goods_brand')
+        const topic = document.querySelector('.xtx_goods_topic')
+        const n = document.documentElement.scrollTop
+        if (n >= news.offsetTop && n < popular.offsetTop) {
+          // 选择第一个小盒子
+          document.querySelector('[data-name=new]').classList.add('active')
+        } else if (n >= popular.offsetTop && n < brand.offsetTop) {
+          document.querySelector('[data-name=popular]').classList.add('active')
+        } else if (n >= brand.offsetTop && n < topic.offsetTop) {
+          document.querySelector('[data-name=brand]').classList.add('active')
+        } else if (n >= topic.offsetTop) {
+          document.querySelector('[data-name=topic]').classList.add('active')
+        }
+      })
+
     })();
   </script>
 </body>
