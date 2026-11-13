@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>待办事项 · 填空版（明早用）</title>
+</head>
+
+<body>
+  <input type="text" id="input" placeholder="请输入待办">
+  <button id="addBtn">添加</button>
+  <ul id="list"></ul>
+
+  <script>
+    // ============================================================
+    // 明天早上 08:30 用：把 8 个空填完，不许看 todo-照抄版.html
+    // 填完打开浏览器，能添加能删除能清空，就算过
+    // ============================================================
+
+    const input = document.getElementById('input');
+    const btn = document.getElementById('addBtn');
+    const list = document.getElementById('list');
+
+    btn.____①____('click', function () {
+
+      const text = input.____②____.trim();
+      if (text === '') return;
+
+      const li = document.____③____('li');
+      li.____④____ = text;
+
+      const del = document.createElement('button');
+      del.textContent = '删除';
+
+      del.addEventListener('click', function () {
+        li.____⑤____();
+      });
+
+      li.____⑥____(del);
+      list.appendChild(li);
+
+      input.value = ____⑦____;
+    });
+  </script>
+
+  <!--
+    词库（顺序打乱了，别照抄位置）：
+      ''        createElement     value
+      appendChild     addEventListener     remove     textContent
+
+    第⑧空：把上面这段代码里"防止空内容"的那句判断补出来，写在空格下面：
+    if (____________) return;
+  -->
+</body>
+
+</html>

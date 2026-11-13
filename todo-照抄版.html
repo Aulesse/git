@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>待办事项 · 照抄版（今晚用）</title>
+</head>
+
+<body>
+  <input type="text" id="input" placeholder="请输入待办">
+  <button id="addBtn">添加</button>
+  <ul id="list"></ul>
+
+  <script>
+    // ============================================================
+    // 用法（照做，不许改顺序）：
+    //   第1遍 22:45-22:55：手打下面每一行到 todo.html，不许复制粘贴，边打边看注释
+    //   第2遍 22:55-23:10：关掉这个文件，在 todo.html 里从空白写，卡住最多瞄 3 次
+    //   明早 08:30：完全空白重写一次，一次过
+    // ============================================================
+
+    // 第1步：拿到页面上已经存在的 3 个元素
+    // getElementById 就是"按 id 找人"，找不到就是 null
+    const input = document.getElementById('input');   // 输入框
+    const btn = document.getElementById('addBtn');    // 添加按钮
+    const list = document.getElementById('list');     // ul 列表
+
+    // 第2步：给按钮绑"点击"事件
+    // 第一个参数是事件名，第二个参数是"点下去要执行的函数"
+    btn.addEventListener('click', function () {
+
+      // 第3步：读出输入框里的字
+      // value 是输入框当前的内容；trim() 去掉首尾空格
+      const text = input.value.trim();
+
+      // 第4步：空内容直接退出，不往下走（这叫"提前 return"）
+      if (text === '') return;
+
+      // 第5步：造一个 li 标签
+      const li = document.createElement('li');
+
+      // 第6步：把文字塞进 li
+      // textContent 只放文字，不会当成标签解析（安全）
+      li.textContent = text;
+
+      // 第7步：造"删除"按钮
+      const del = document.createElement('button');
+      del.textContent = '删除';
+
+      // 第8步：给删除按钮绑点击，点它就把整条 li 删掉
+      // 这里能用到 li，是因为函数"记住了"外面的 li（闭包）
+      del.addEventListener('click', function () {
+        li.remove();
+      });
+
+      // 第9步：把删除按钮塞进 li，再把 li 塞进 ul
+      // 顺序不能反：先组好整条，再挂到页面上
+      li.appendChild(del);
+      list.appendChild(li);
+
+      // 第10步：清空输入框，方便输入下一条
+      input.value = '';
+    });
+  </script>
+</body>
+
+</html>

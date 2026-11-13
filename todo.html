@@ -1,38 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>待办事项</title>
+  <title>待办事项 · 默写</title>
 </head>
 
 <body>
-  <input type="text" placeholder="请输入内容" id="input">
+  <input type="text" id="input" placeholder="请输入待办">
   <button id="addBtn">添加</button>
   <ul id="list"></ul>
 
   <script>
-    let addBtn = document.getElementById('addBtn');
-    let input = document.getElementById('input');
-    let ul = document.getElementById('list');
+    /*
+      ===== 默写开始：2026-11-08 22:40 =====
+      规矩：不许 opened 旧代码、不许 git checkout 回滚、不许看视频、不许问我。
+      只准查 MDN，最多 3 次。
 
-    addBtn.addEventListener('click', function () {
-      let li = document.createElement('li');
-      li.textContent = input.value;
+      1. 拿到输入框、添加按钮、列表 三个元素
+      2. 点添加：输入框的字变成列表里的一条
+      3. 每条后面有"删除"按钮，点它删掉这一条
+      4. 添加完把输入框清空
+      5. 额外（加分）：输入为空或只有空格时，不添加
 
-      let delBtn = document.createElement('button');
-      delBtn.textContent = '删除';
-
-      delBtn.addEventListener('click', function () {
-        li.remove();
-      });
-
-      li.appendChild(delBtn);
-      ul.appendChild(li);
-
-      input.value = '';
-    });
+      写完自己读一遍，口头讲每一步在干嘛，再开浏览器点一遍。
+      记录：用时 ____ 分钟 / 卡在第 ___ 步 / MDN ___ 次
+    */
   </script>
 </body>
 
