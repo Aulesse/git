@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="http://www.itcast.cn">支付成功<span>5</span>秒钟之后跳转页面</a>
+  <script>
+    // 1.获取元素
+    const a = document.querySelector('a')
+    // 2.开启定时器
+    // 3.声明倒计时变量
+    let num = 5
+    let timeId = setInterval(function () {
+      num--
+      a.innerHTML = `支付成功<span>${num}</span>秒钟之后跳转到首页`
+      if (num === 0) {
+        clearInterval(timeId)
+        location.href = 'http://www.itcast.cn'
+      }
+    }, 1000)
+
+    // location.reload()  刷新
+    // location.search()  ？后面的内容
+    // location.hash()    #后面的内容
+
+    // navigator对象  主要用来获取浏览器信息(了解)
+  </script>
+</body>
+
+</html>
