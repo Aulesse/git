@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX概念和axios使用</title>
+</head>
+
+<body>
+  <!--
+    axios库地址：https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js
+    省份数据地址：http://hmajax.itheima.net/api/province
+
+    目标: 使用axios库, 获取省份列表数据, 展示到页面上
+    1. 引入axios库
+  -->
+  <p class="my-p"></p>
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.6.7/axios.min.js"></script>
+  <script>
+    // 2. 使用axios函数
+    // axios({
+    //   url: 'https://hmajax.itheima.net/api/province'
+    // }).then(result => {
+    //   console.log(result)
+    //   // 好习惯：多打印，确认属性名
+    //   console.log(result.data.list)
+    //   console.log(result.data.list.join('<br>'))
+    //   // 把准备好省份列表，插入到页面
+    //   document.querySelector('.my-p').innerHTML = result.data.list.join('<br>')
+    // })
+
+    // async function getData() {
+    //   const result = await axios.get('https://hmajax.itheima.net/api/province')
+    //   console.log(result.data.list)
+    // }
+    // getData()
+
+    async function getData() {
+      const result = await axios.get('https://hmajax.itheima.net/api/province')
+
+      // 1. 拿到数组
+      const list = result.data.list
+
+      // 2. 把数组遍历，拼成 html 字符串 (用 map 或者 for)
+      let htmlStr = ''
+      for (let i = 0; i < list.length; i++) {
+        htmlStr += `<li>${list[i]}</li>`
+      }
+
+      // 3. 渲染到页面
+      document.querySelector('.my-p').innerHTML = htmlStr
+    }
+    getData()
+  </script>
+</body>
+
+</html>
